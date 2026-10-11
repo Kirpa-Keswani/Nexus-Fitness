@@ -1,0 +1,117 @@
+/* Nexus Fitness: custom styles layered on Bootstrap 5.3 */
+:root {
+  --nx-cobalt: #2D3CFF;
+  --nx-flame: #FF5A1F;
+  --nx-navy: #0E1330;
+  --bs-primary: #2D3CFF;
+  --bs-primary-rgb: 45, 60, 255;
+  --bs-body-bg: #F1F1EC;
+  --bs-body-color: #0E1330;
+  --bs-body-font-family: 'DM Sans', system-ui, sans-serif;
+  --bs-tertiary-bg: #FFFFFF;
+}
+[data-bs-theme="dark"] {
+  --nx-cobalt: #6F7BFF;
+  --bs-primary: #6F7BFF;
+  --bs-primary-rgb: 111, 123, 255;
+  --bs-body-bg: #0B0E20;
+  --bs-body-color: #EEF0FA;
+  --bs-tertiary-bg: #141836;
+  --bs-secondary-color: #9AA0C4;
+}
+
+body { font-size: 1.05rem; overflow-x: hidden; }
+h1, h2, h3, h4, h5, .nx-logo, .nx-stats strong, .nx-price {
+  font-family: 'Archivo', Impact, sans-serif;
+  letter-spacing: -.02em;
+}
+:focus-visible { outline: 3px solid var(--nx-flame) !important; outline-offset: 3px; }
+.nx-section { padding: 5rem 0; }
+.nx-h2 { font-weight: 800; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1; max-width: 16ch; margin-bottom: 1rem; }
+
+/* Buttons */
+.btn-nx-accent { background: var(--nx-flame); border-color: var(--nx-flame); color: #fff; font-weight: 700; }
+.btn-nx-accent:hover, .btn-nx-accent:focus { background: #E64A12; border-color: #E64A12; color: #fff; }
+.btn-outline-primary { --bs-btn-color: var(--nx-cobalt); --bs-btn-border-color: var(--nx-cobalt); --bs-btn-hover-bg: var(--nx-cobalt); --bs-btn-hover-border-color: var(--nx-cobalt); --bs-btn-active-bg: var(--nx-cobalt); --bs-btn-active-border-color: var(--nx-cobalt); font-weight: 700; }
+[data-bs-theme="dark"] .btn-outline-primary { --bs-btn-hover-color: #0B0E20; --bs-btn-active-color: #0B0E20; }
+
+/* Navbar (fixed: always navy, links bright) */
+.nx-nav { background: #0E1330; }
+.nx-nav .nav-link { color: #F1F1EC; font-weight: 500; }
+.nx-nav .nav-link:hover, .nx-nav .nav-link:focus { color: var(--nx-flame); }
+.nx-logo { font-weight: 900; font-size: 1.4rem; }
+
+/* Hero: add images/hero.jpg for a photo background; navy shows if it's missing */
+.nx-hero {
+  color: #F1F1EC;
+  padding: 4rem 0 5rem;
+  background-color: #0E1330;
+  background-image: linear-gradient(rgba(14,19,48,.88), rgba(14,19,48,.88)), var(--hero-img, none);
+  background-size: cover;
+  background-position: center;
+}
+.nx-display { font-weight: 900; font-size: clamp(2.6rem, 9vw, 6.2rem); line-height: .95; }
+.nx-hero .lead { max-width: 44ch; opacity: .9; }
+
+/* Live floor card */
+.nx-floor { color: var(--bs-body-color); }
+.nx-live { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #22C55E; animation: nx-pulse 1.6s infinite; }
+@keyframes nx-pulse { 50% { opacity: .25; } }
+.nx-zone + .nx-zone { margin-top: 1rem; }
+.nx-zone .progress { height: 10px; }
+.nx-zone .progress-bar { background: var(--nx-cobalt); transition: width 1s ease; }
+.nx-zone.busy .progress-bar { background: var(--nx-flame); }
+
+/* Stats */
+.nx-stats > div { border-bottom: 1px solid var(--bs-border-color); }
+.nx-stats strong { display: block; font-size: 1.9rem; font-weight: 800; }
+.nx-stats span { color: var(--bs-secondary-color); font-size: .95rem; }
+@media (min-width: 768px) { .nx-stats > div { border-right: 1px solid var(--bs-border-color); } .nx-stats > div:last-child { border-right: 0; } }
+
+/* Programs */
+.nx-prog { min-height: 250px; border-radius: 18px; background: var(--bs-tertiary-bg); }
+.nx-prog:hover { border-color: var(--nx-cobalt); }
+.nx-icon { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 12px; background: rgba(var(--bs-primary-rgb), .14); font-size: 1.4rem; }
+.nx-link { color: var(--nx-cobalt); font-size: .9rem; }
+
+/* Schedule */
+#dayTabs .nav-link { border-radius: 999px; border: 1.5px solid var(--bs-border-color); margin-right: .5rem; color: var(--bs-body-color); white-space: nowrap; }
+#dayTabs .nav-link.active { background: var(--bs-body-color); color: var(--bs-body-bg); border-color: var(--bs-body-color); }
+.nx-class { display: grid; grid-template-columns: 80px 1fr auto; gap: 1rem; align-items: center; padding: 1.1rem 0; border-top: 1px solid var(--bs-border-color); }
+.nx-class time { font: 800 1.15rem 'Archivo', sans-serif; }
+.nx-class small { color: var(--bs-secondary-color); }
+
+/* Plans */
+.nx-plan { border-radius: 20px; background: var(--bs-tertiary-bg); }
+.nx-plan.best { border: 3px solid var(--nx-cobalt); }
+.nx-price { font-size: 3rem; font-weight: 900; }
+.nx-price small { font: 400 .95rem 'DM Sans', sans-serif; color: var(--bs-secondary-color); }
+.nx-check li { padding-left: 1.6rem; position: relative; margin-bottom: .5rem; }
+.nx-check li::before { content: "✓"; position: absolute; left: 0; color: var(--nx-cobalt); font-weight: 700; }
+.nx-badge { background: var(--nx-flame); }
+
+/* Coaches: initials show behind the photo, so a missing photo still looks fine */
+.nx-avatar { position: relative; height: 190px; display: grid; place-items: center; color: #fff; font: 900 3.4rem 'Archivo', sans-serif; overflow: hidden; }
+.nx-avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* Testimonials */
+.nx-quote { border-radius: 18px; background: var(--bs-tertiary-bg); }
+.nx-quote blockquote { font: 500 1.15rem/1.4 'Archivo', sans-serif; letter-spacing: -.01em; }
+
+/* Join */
+.nx-join { background: #0E1330; color: #F1F1EC; }
+
+/* Footer */
+.nx-footer { background: #0E1330; color: #C9CDE6; }
+.nx-footer a { color: #F1F1EC; text-decoration: none; }
+.nx-footer a:hover { color: var(--nx-flame); text-decoration: underline; }
+.nx-footer h3 { color: #F1F1EC; font-size: 1rem; }
+.nx-footer hr { border-color: #2A2F55; opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+@media (max-width: 575px) {
+  .nx-class { grid-template-columns: 64px 1fr auto; gap: .6rem; }
+  .nx-section { padding: 3.5rem 0; }
+  .nx-hero { padding: 3rem 0 3.5rem; }
+  .nx-price { font-size: 2.5rem; }
+}

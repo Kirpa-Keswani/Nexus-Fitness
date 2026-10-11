@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nexus Fitness</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-md sticky-top nx-nav" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand nx-logo" href="#top">Nexus Fitness</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="#programs">Programs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+        <li class="nav-item"><a class="nav-link" href="#plans">Membership</a></li>
+        <li class="nav-item"><a class="nav-link" href="#coaches">Coaches</a></li>
+        <li class="nav-item"><a class="nav-link" href="#stories">Stories</a></li>
+      </ul>
+      <a href="#join" class="btn btn-nx-accent rounded-pill px-4">Start free week</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO: put your photo at images/hero.jpg (page still works without it) -->
+<header class="nx-hero" id="top" style="--hero-img:url('images/hero.jpg')">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <h1 class="nx-display">Train where everything connects.</h1>
+        <p class="lead my-4">Strength floor, studio classes, recovery and coaching under one roof, open 5am to midnight. Your first week is free.</p>
+        <a href="#join" class="btn btn-nx-accent btn-lg rounded-pill px-4 me-2 mb-2">Start free week</a>
+        <a href="#schedule" class="btn btn-outline-light btn-lg rounded-pill px-4 mb-2">See today's classes</a>
+      </div>
+      <div class="col-lg-5">
+        <aside class="card nx-floor border-0 rounded-4 p-2" aria-label="Live gym floor">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h2 class="h5 mb-0">Floor right now</h2>
+              <span class="small text-body-secondary"><span class="nx-live"></span> Live</span>
+            </div>
+            <div id="zones" class="mt-3"></div>
+            <p class="small text-body-secondary mt-3 mb-0">Pick a quiet zone, skip the wait.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="container">
+  <div class="row text-center text-md-start nx-stats">
+    <div class="col-6 col-md-3 p-4"><strong>24,000 sq ft</strong><span>of training space</span></div>
+    <div class="col-6 col-md-3 p-4"><strong>85+</strong><span>weekly classes</span></div>
+    <div class="col-6 col-md-3 p-4"><strong>32</strong><span>certified coaches</span></div>
+    <div class="col-6 col-md-3 p-4"><strong>5am–12am</strong><span>open daily</span></div>
+  </div>
+</div>
+
+<!-- PROGRAMS -->
+<section id="programs" class="nx-section">
+  <div class="container">
+    <h2 class="nx-h2">Four ways to train</h2>
+    <p class="text-body-secondary mb-5">Mix and match. Every membership includes all four.</p>
+    <div class="row g-3">
+      <div class="col-sm-6 col-lg-3"><div class="card nx-prog h-100"><div class="card-body d-flex flex-column"><span class="nx-icon">🏋️</span><h3 class="h4 mt-3">Strength</h3><p class="text-body-secondary">Racks, platforms and free weights, with coaches on the floor to check your form.</p><span class="mt-auto fw-bold nx-link">Open all hours</span></div></div></div>
+      <div class="col-sm-6 col-lg-3"><div class="card nx-prog h-100"><div class="card-body d-flex flex-column"><span class="nx-icon">⚡</span><h3 class="h4 mt-3">Conditioning</h3><p class="text-body-secondary">45-minute interval classes built around heart rate. Scale every move to your level.</p><span class="mt-auto fw-bold nx-link">32 classes a week</span></div></div></div>
+      <div class="col-sm-6 col-lg-3"><div class="card nx-prog h-100"><div class="card-body d-flex flex-column"><span class="nx-icon">🧘</span><h3 class="h4 mt-3">Mobility and yoga</h3><p class="text-body-secondary">Slow flows and guided stretching for joints that carry you through the other three.</p><span class="mt-auto fw-bold nx-link">Daily, 6am to 9pm</span></div></div></div>
+      <div class="col-sm-6 col-lg-3"><div class="card nx-prog h-100"><div class="card-body d-flex flex-column"><span class="nx-icon">❄️</span><h3 class="h4 mt-3">Recovery</h3><p class="text-body-secondary">Sauna, cold plunge and compression boots. Book a 30-minute slot after your session.</p><span class="mt-auto fw-bold nx-link">Included, no extra fee</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE (class times are edited in script.js) -->
+<section id="schedule" class="nx-section bg-body-tertiary">
+  <div class="container">
+    <h2 class="nx-h2">Book a class</h2>
+    <p class="text-body-secondary mb-4">Tap a day, then reserve your spot. Cancel up to 2 hours before.</p>
+    <ul class="nav nav-pills flex-nowrap overflow-auto mb-3 pb-1" id="dayTabs" role="tablist"></ul>
+    <div id="classList"></div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section id="plans" class="nx-section">
+  <div class="container">
+    <h2 class="nx-h2">Pick a membership</h2>
+    <p class="text-body-secondary mb-4">No joining fee. Pause or cancel from the app any time.</p>
+    <div class="btn-group mb-5" role="group" aria-label="Billing period">
+      <input type="radio" class="btn-check" name="billing" id="bm" value="m" checked>
+      <label class="btn btn-outline-primary rounded-start-pill px-4" for="bm">Monthly</label>
+      <input type="radio" class="btn-check" name="billing" id="by" value="y">
+      <label class="btn btn-outline-primary rounded-end-pill px-4" for="by">Yearly, save 20%</label>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="card nx-plan h-100"><div class="card-body d-flex flex-column p-4">
+        <h3 class="h4">Base</h3>
+        <div class="nx-price my-2"><span data-m="39" data-y="31">$39</span><small>/month</small></div>
+        <ul class="list-unstyled nx-check mb-4"><li>Gym floor, 5am to midnight</li><li>Recovery lounge, 2 visits a month</li><li>Nexus app and tracking</li></ul>
+        <a href="#join" class="btn btn-outline-primary rounded-pill mt-auto">Choose Base</a></div></div></div>
+      <div class="col-md-4"><div class="card nx-plan best h-100"><div class="card-body d-flex flex-column p-4">
+        <span class="badge nx-badge align-self-start mb-2">Most popular</span>
+        <h3 class="h4">Connect</h3>
+        <div class="nx-price my-2"><span data-m="69" data-y="55">$69</span><small>/month</small></div>
+        <ul class="list-unstyled nx-check mb-4"><li>Everything in Base</li><li>Unlimited classes</li><li>Unlimited recovery</li><li>1 coaching session a month</li></ul>
+        <a href="#join" class="btn btn-nx-accent rounded-pill mt-auto">Choose Connect</a></div></div></div>
+      <div class="col-md-4"><div class="card nx-plan h-100"><div class="card-body d-flex flex-column p-4">
+        <h3 class="h4">Elite</h3>
+        <div class="nx-price my-2"><span data-m="129" data-y="103">$129</span><small>/month</small></div>
+        <ul class="list-unstyled nx-check mb-4"><li>Everything in Connect</li><li>4 coaching sessions a month</li><li>Custom training plan</li><li>Bring a guest every week</li></ul>
+        <a href="#join" class="btn btn-outline-primary rounded-pill mt-auto">Choose Elite</a></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COACHES: photos go in images/hamza.jpg, bilal.jpg, ayesha.jpg, sana.jpg.
+     If a photo is missing, the coloured initials show instead. -->
+<section id="coaches" class="nx-section bg-body-tertiary">
+  <div class="container">
+    <h2 class="nx-h2">Meet your coaches</h2>
+    <p class="text-body-secondary mb-5">Every coach is nationally certified and trains on the same floor you do.</p>
+    <div class="row g-3">
+      <div class="col-6 col-lg-3"><div class="card h-100 overflow-hidden"><div class="nx-avatar" style="background:#2D3CFF">HQ<img src="images/hamza.jpg" alt="Hamza Qureshi" onerror="this.remove()"></div><div class="card-body"><h3 class="h5">Hamza Qureshi</h3><p class="small text-body-secondary mb-0">Strength and powerlifting. 9 years coaching.</p></div></div></div>
+      <div class="col-6 col-lg-3"><div class="card h-100 overflow-hidden"><div class="nx-avatar" style="background:#FF5A1F">BA<img src="images/bilal.jpg" alt="Bilal Ahmed" onerror="this.remove()"></div><div class="card-body"><h3 class="h5">Bilal Ahmed</h3><p class="small text-body-secondary mb-0">Conditioning and sports performance.</p></div></div></div>
+      <div class="col-6 col-lg-3"><div class="card h-100 overflow-hidden"><div class="nx-avatar" style="background:#0E1330">AM<img src="images/ayesha.jpg" alt="Ayesha Malik" onerror="this.remove()"></div><div class="card-body"><h3 class="h5">Ayesha Malik</h3><p class="small text-body-secondary mb-0">Mobility, yoga and injury recovery.</p></div></div></div>
+      <div class="col-6 col-lg-3"><div class="card h-100 overflow-hidden"><div class="nx-avatar" style="background:#4C57E8">SR<img src="images/sana.jpg" alt="Sana Raza" onerror="this.remove()"></div><div class="card-body"><h3 class="h5">Sana Raza</h3><p class="small text-body-secondary mb-0">Nutrition and weight loss.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="stories" class="nx-section">
+  <div class="container">
+    <h2 class="nx-h2">Member stories</h2>
+    <p class="text-body-secondary mb-5">What members say after their first few months.</p>
+    <div class="row g-3">
+      <div class="col-md-4"><figure class="card nx-quote h-100 p-4 mb-0"><blockquote class="mb-3">"I lifted alone for years. The coaches fixed my form in two weeks."</blockquote><figcaption class="small text-body-secondary mt-auto">Sara, member since 2024</figcaption></figure></div>
+      <div class="col-md-4"><figure class="card nx-quote h-100 p-4 mb-0"><blockquote class="mb-3">"The live floor count means I never wait for a rack."</blockquote><figcaption class="small text-body-secondary mt-auto">Omar, member since 2025</figcaption></figure></div>
+      <div class="col-md-4"><figure class="card nx-quote h-100 p-4 mb-0"><blockquote class="mb-3">"Recovery included in the price is the reason I joined."</blockquote><figcaption class="small text-body-secondary mt-auto">Priya, member since 2023</figcaption></figure></div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section id="join" class="nx-section pt-0">
+  <div class="container">
+    <div class="nx-join rounded-5 p-4 p-md-5">
+      <div class="row align-items-center g-4">
+        <div class="col-md-6">
+          <h2 class="nx-h2">Your first week is on us</h2>
+          <p class="mt-3 mb-0">Tell us where to send your pass. You'll get a check-in code within a minute.</p>
+        </div>
+        <div class="col-md-6">
+          <form id="joinForm" class="needs-validation" novalidate data-bs-theme="light">
+            <div class="mb-3"><label for="name" class="form-label text-white">Full name</label>
+              <input type="text" class="form-control form-control-lg" id="name" required>
+              <div class="invalid-feedback">Enter your full name.</div></div>
+            <div class="mb-3"><label for="email" class="form-label text-white">Email</label>
+              <input type="email" class="form-control form-control-lg" id="email" required>
+              <div class="invalid-feedback">Enter a valid email address.</div></div>
+            <div class="mb-3"><label for="goal" class="form-label text-white">Main goal</label>
+              <select class="form-select form-select-lg" id="goal"><option>Build strength</option><option>Lose weight</option><option>Improve fitness</option><option>Recover from injury</option></select></div>
+            <button type="submit" class="btn btn-nx-accent btn-lg rounded-pill w-100">Get my free week</button>
+            <div id="formMsg" class="fw-bold mt-3" role="status"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="nx-footer py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-5">
+        <div class="nx-logo mb-2">Nexus Fitness</div>
+        <p class="small mb-0">Strength, classes and recovery under one roof.</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <h3 class="h6">Visit us</h3>
+        <p class="small mb-0">Shahbaz Commercial Area, Phase 6<br>DHA, Karachi 75500<br>Open daily 5am–12am</p>
+      </div>
+      <div class="col-6 col-md-4">
+        <h3 class="h6">Get in touch</h3>
+        <p class="small mb-2"><a href="mailto:hello@nexusfitness.example">hello@nexusfitness.example</a><br>+92 3321745293</p>
+        <p class="small mb-0"><a href="#" aria-label="Instagram">Instagram</a> · <a href="#" aria-label="Facebook">Facebook</a> · <a href="#" aria-label="YouTube">YouTube</a></p>
+      </div>
+    </div>
+    <hr>
+    <p class="small mb-0">© 2026 Nexus Fitness. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
