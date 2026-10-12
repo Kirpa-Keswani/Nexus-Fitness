@@ -2,7 +2,7 @@
 
 A responsive gym landing page built with HTML, CSS, JavaScript and Bootstrap 5. This is a front-end only project with no backend.
 
-**Live demo:** https://YOUR-USERNAME.github.io/nexus-fitness/
+**Live demo:**https://nexusfitness-landing.netlify.app/
 
 ## Features
 
