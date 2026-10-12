@@ -38,7 +38,7 @@ nexus-fitness/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YOUR-USERNAME/nexus-fitness.git
+   git clone https://github.com/Kirpa-Keswani/Nexus-Fitness
    ```
 2. Open the folder in VS Code.
 3. Start it with the Live Server extension, or open `index.html` in a browser.
